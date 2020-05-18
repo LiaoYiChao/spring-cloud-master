@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cloud-api-common" default="compile.module.cloud-api-common">
+  <dirname property="module.cloud-api-common.basedir" file="${ant.file.module_cloud-api-common}"/>
+  
+  <property name="module.jdk.home.cloud-api-common" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cloud-api-common" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cloud-api-common" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cloud-api-common" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="cloud-api-common.output.dir" value="${module.cloud-api-common.basedir}/target/classes"/>
+  <property name="cloud-api-common.testoutput.dir" value="${module.cloud-api-common.basedir}/target/test-classes"/>
+  
+  <path id="cloud-api-common.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cloud-api-common.module.production.classpath">
+    <path refid="${module.jdk.classpath.cloud-api-common}"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.18.classpath"/>
+    <path refid="library.maven:_cn.hutool:hutool-all:5.1.0.classpath"/>
+  </path>
+  
+  <path id="cloud-api-common.runtime.production.module.classpath">
+    <pathelement location="${cloud-api-common.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.18.classpath"/>
+    <path refid="library.maven:_cn.hutool:hutool-all:5.1.0.classpath"/>
+  </path>
+  
+  <path id="cloud-api-common.module.classpath">
+    <path refid="${module.jdk.classpath.cloud-api-common}"/>
+    <pathelement location="${cloud-api-common.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.18.classpath"/>
+    <path refid="library.maven:_cn.hutool:hutool-all:5.1.0.classpath"/>
+  </path>
+  
+  <path id="cloud-api-common.runtime.module.classpath">
+    <pathelement location="${cloud-api-common.testoutput.dir}"/>
+    <pathelement location="${cloud-api-common.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jcl:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:5.2.2.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:2.2.2.release.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.18.classpath"/>
+    <path refid="library.maven:_cn.hutool:hutool-all:5.1.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cloud-api-common">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cloud-api-common">
+    <patternset refid="excluded.from.module.cloud-api-common"/>
+  </patternset>
+  
+  <path id="cloud-api-common.module.sourcepath">
+    <dirset dir="${module.cloud-api-common.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="cloud-api-common.module.test.sourcepath">
+    <dirset dir="${module.cloud-api-common.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cloud-api-common" depends="compile.module.cloud-api-common.production,compile.module.cloud-api-common.tests" description="Compile module cloud-api-common"/>
+  
+  <target name="compile.module.cloud-api-common.production" depends="register.custom.compilers" description="Compile module cloud-api-common; production classes">
+    <mkdir dir="${cloud-api-common.output.dir}"/>
+    <javac2 destdir="${cloud-api-common.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cloud-api-common}/javac">
+      <compilerarg line="${compiler.args.cloud-api-common}"/>
+      <bootclasspath refid="cloud-api-common.module.bootclasspath"/>
+      <classpath refid="cloud-api-common.module.production.classpath"/>
+      <src refid="cloud-api-common.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cloud-api-common"/>
+    </javac2>
+    
+    <copy todir="${cloud-api-common.output.dir}">
+      <fileset dir="${module.cloud-api-common.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cloud-api-common.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cloud-api-common.tests" depends="register.custom.compilers,compile.module.cloud-api-common.production" description="compile module cloud-api-common; test classes" unless="skip.tests">
+    <mkdir dir="${cloud-api-common.testoutput.dir}"/>
+    <javac2 destdir="${cloud-api-common.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cloud-api-common}/javac">
+      <compilerarg line="${compiler.args.cloud-api-common}"/>
+      <bootclasspath refid="cloud-api-common.module.bootclasspath"/>
+      <classpath refid="cloud-api-common.module.classpath"/>
+      <src refid="cloud-api-common.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cloud-api-common"/>
+    </javac2>
+    
+    <copy todir="${cloud-api-common.testoutput.dir}">
+      <fileset dir="${module.cloud-api-common.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.cloud-api-common" description="cleanup module">
+    <delete dir="${cloud-api-common.output.dir}"/>
+    <delete dir="${cloud-api-common.testoutput.dir}"/>
+  </target>
+</project>
